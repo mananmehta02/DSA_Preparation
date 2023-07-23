@@ -50,7 +50,7 @@ public class SortingAlgo {
     /**
      * Merge uses divide & conquer algorithm
      * The worst case time-complexity of merge sort is O(n^2)
-     * @param nums
+     * @param nums array which needs to be sorted
      */
     public void mergeSort(int[] nums) {
         int size = nums.length;
@@ -64,6 +64,12 @@ public class SortingAlgo {
         mergeTwo(nums1,nums2,nums);
      }
 
+    /**
+     * MergeTwo function is used to merge two sorted arrays into one.
+     * @param nums1 sorted array 1
+     * @param nums2 sorted array 2
+     * @param nums merged array
+     */
      public void mergeTwo(int[] nums1, int[] nums2, int[] nums) {
         int s1 = nums1.length;
         int s2 = nums2.length;
@@ -85,26 +91,37 @@ public class SortingAlgo {
         }
      }
 
-    public void quickSort(int[] nums) {
-        int size = nums.length;
-        if(size<=1) {
+    /** QuickSort uses divide and conquer method to do sorting.
+     * The average case time complexity is O(nlogn).
+     * The worst case time complexity is O(n^2).
+     * @param nums the array to be sorted
+     * @param low the lower index of the nums array.
+     * @param high the higher index of the nums array.
+     */
+    public void quickSort(int[] nums,int low,int high) {
+        if(high<=low) {
             return;
         }
-        int pivotIndex = 0;
-        for(int i=0;i<size-1;i++) {
-            if(nums[i]<=nums[size-1]){
-                pivotIndex++;
+        int pivot = nums[high];
+        int pivotIndex = low ;
+        for(int i=low;i<high;i++) {
+            if(nums[i]<pivot){
                 swap(pivotIndex,i,nums);
-
+                pivotIndex++;
             }
         }
-        swap(pivotIndex,size-1,nums);
+        swap(pivotIndex,high,nums);
 
-        int[] nums1 = Arrays.copyOfRange(nums,0,pivotIndex);
-        int[] nums2 = Arrays.copyOfRange(nums,pivotIndex,size);
-        quickSort(nums1);
-        quickSort(nums2);
+        quickSort(nums,low,pivotIndex-1);
+        quickSort(nums,pivotIndex+1,high);
     }
+
+    /**
+     * Method to swap elements of a given integer array
+     * @param i index of the first element
+     * @param j index of the second element
+     * @param nums integer array
+     */
     public void swap(int i, int j,int[] nums) {
         int temp = nums[i];
         nums[i] = nums[j];
