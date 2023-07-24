@@ -7,5 +7,8 @@ public class Main {
              nums) {
            System.out.println(num);
         }
+        boolean elementPresent = BinarySearch.binarySearch
+                (nums,4,2,nums.length-1);
+        System.out.println(elementPresent);
     }
 }
