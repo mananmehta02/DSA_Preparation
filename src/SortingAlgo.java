@@ -1,10 +1,13 @@
 import java.util.Arrays;
 
+/**
+ * A utility class containing sorting algorithms
+ */
 public class SortingAlgo {
     /**
      * Bubble sorting time complexity is O(n^2)
      */
-    public void bubbleSort(int[] nums) {
+    public static void bubbleSort(int[] nums) {
         int size = nums.length;
         for(int i=0;i<size;i++) {
             for(int j=i;j<size;j++) {
@@ -18,7 +21,7 @@ public class SortingAlgo {
     /**
      * Selection sort has time of order of O(n^2)
      */
-    public void selectionSort(int[] nums) {
+    public static void selectionSort(int[] nums) {
         int size = nums.length;
 
         for(int i=0;i<size;i++) {
@@ -36,7 +39,7 @@ public class SortingAlgo {
     /**
      * Insertion sort time complexity is O(n^2)
      */
-    public void insertionSort(int[] nums) {
+    public static void insertionSort(int[] nums) {
         int size = nums.length;
         for(int i=1;i<size;i++) {
             int j=i;
@@ -52,7 +55,7 @@ public class SortingAlgo {
      * The worst case time-complexity of merge sort is O(n^2)
      * @param nums array which needs to be sorted
      */
-    public void mergeSort(int[] nums) {
+    public static void mergeSort(int[] nums) {
         int size = nums.length;
         if(size <= 1) {
             return;
@@ -70,7 +73,7 @@ public class SortingAlgo {
      * @param nums2 sorted array 2
      * @param nums merged array
      */
-     public void mergeTwo(int[] nums1, int[] nums2, int[] nums) {
+     public static void mergeTwo(int[] nums1, int[] nums2, int[] nums) {
         int s1 = nums1.length;
         int s2 = nums2.length;
 
@@ -98,7 +101,7 @@ public class SortingAlgo {
      * @param low the lower index of the nums array.
      * @param high the higher index of the nums array.
      */
-    public void quickSort(int[] nums,int low,int high) {
+    public static void quickSort(int[] nums,int low,int high) {
         if(high<=low) {
             return;
         }
@@ -122,7 +125,7 @@ public class SortingAlgo {
      * @param j index of the second element
      * @param nums integer array
      */
-    public void swap(int i, int j,int[] nums) {
+    public static void swap(int i, int j,int[] nums) {
         int temp = nums[i];
         nums[i] = nums[j];
         nums[j] = temp;
